@@ -26,7 +26,7 @@ class Reader(BaseGui):
         self.height = 0
         self.width = 0
         self.height = 0
-        self.show_links = 0
+        self.show_links = 1
         self.tag = tag
         self.dead = dead_call
 
