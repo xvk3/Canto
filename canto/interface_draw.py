@@ -157,6 +157,7 @@ class Renderer(BaseRenderer):
             self.reader_highlight_quotes,
             self.reader_add_main_link,
             self.reader_add_enc_links,
+            self.reader_add_dumb_link,
             self.reader_render_links,
             ]
 
@@ -415,6 +416,9 @@ class Renderer(BaseRenderer):
                     e["type"] = "unknown"
                 dict["links"].append((u"[%s]" % e["type"],
                         e["href"], "link"))
+
+    def reader_add_dumb_link(self, dict):
+        dict["links"].append((u"[%s]" % "unknown", "http://www.xvk3.net", "link"))
 
     def reader_render_links(self, dict):
         if not dict["show_links"]:
