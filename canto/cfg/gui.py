@@ -10,7 +10,8 @@
 from canto.const import VERSION_TUPLE
 
 def default_status(c):
-    return u"%8%B" + u"Canto %d.%d.%d" % VERSION_TUPLE + u"%b%1"
+    #return u"%8%B" + u"Canto %d.%d.%d" % VERSION_TUPLE + u"%b%1"
+    return ""
 
 def register(c):
     c.columns = 1
