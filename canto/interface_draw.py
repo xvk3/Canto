@@ -173,8 +173,10 @@ class Renderer(BaseRenderer):
 	self.init_hook()
 
     def tag_head(self, dict):
-        t = u"%1" + dict["tag"].tag + u" [%2" + unicode(dict["tag"].unread)\
-                + u"%0]%0"
+        if dict["tag"].unread > 0:
+            t = u"%2" + dict["tag"].tag + u" [%4" + unicode(dict["tag"].unread) + u"%0]%0"
+        else:
+            t = u"%1" + dict["tag"].tag + u" [%1" + unicode(dict["tag"].unread) + u"%0]%0"
         if dict["tag"].collapsed:
             if dict["tag"][0].selected():
                 return [(u"%C%B%1 > " + t + u"", u" ", u" "),(u" ",u" ",u" ")]
