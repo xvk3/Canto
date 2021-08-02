@@ -187,17 +187,26 @@ class Renderer(BaseRenderer):
         base = u"%C%1%B│%b%0 "
     
         if dict["story"].selected() :
-            base += u"%1%B>%b%0 "
+            base += u"%3%B>%b%0 "
         else:
             base += u"  "
 
         if dict["story"].was("marked"):
-            base += u"%1%B"
+            base += u"%2%B"
         else:
             if dict["story"].was("read"):
-                base += u"%3"
+                base += u"%1"
+                # %-1 = Unknown
+                # %0  = Unknown
+                # %1  = White/Grey Text
+                # %2  = Blue Text
+                # %3  = Orange/Yellow Text
+                # %4  = Green Text
+                # %5  = Magenta Text
+                # %6  = Invisible Text
+                # %6B = Bold Grey Text
             else:
-                base += u"%2%B"
+                base += u"%4%B"
 
         return (base, u" ", u" %1%B│%b%0")
 
